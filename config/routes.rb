@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
   
   get '/home/questions', to: 'home#questions', as: :home_questions
+  get '/home/question/:id', to: 'home#question', as: :home_question
   
   resources :questions
   resources :answers
