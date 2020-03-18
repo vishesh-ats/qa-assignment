@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   
   resources :questions
   resources :answers
-  resources :topics  
+  resources :topics
+  
+  get 'follow_user/:id', to: 'followings#follow_user', as: :follow_user 
+  get 'follow_topic/:id', to: 'followings#follow_topic', as: :follow_topic 
 end

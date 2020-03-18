@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :questions
   has_many :answers
   has_many :topics
+  
+  has_many :followers, foreign_key: :follower_id, class_name: 'Following'
+  has_many :followeds, foreign_key: :followed_id, class_name: 'Following'
+  belongs_to :followable, polymorphic: true
 end
