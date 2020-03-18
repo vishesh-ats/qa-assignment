@@ -12,7 +12,7 @@ class Answer < ApplicationRecord
   end
   
   def already_answered
-    answered = self.user_id == user_id && self.question_id == question_id
-    self.errors[:base] << 'You already answered this Question' if answered
+    answered = Answer.where(user_id: user_id, question_id: question_id).first
+    self.errors[:base] << 'You already answered this Question' if answered.present?
   end
 end
