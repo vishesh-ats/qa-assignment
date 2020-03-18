@@ -10,6 +10,24 @@
   </head>
 
   <body>
+    <h1>Qa-Assignment</h1>
+    <% flash.each do |key, value| %>
+      <% if key == 'notice' %>
+        <div class="notice"><%= value %></div>
+      <% else %>
+        <div class="error-exp"><%= value %></div>
+      <% end %>
+    <% end %>
+    <br/>
+    <div class="main">
+      <%= link_to 'Home', root_path %>
+      <% if user_signed_in? %>
+        | <%= link_to "Welcome.. #{current_user.email}", '' %>
+        | <%= link_to "Signout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        | <%= link_to 'Login', new_user_session_path, class: 'login' %> 
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
