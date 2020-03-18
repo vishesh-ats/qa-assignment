@@ -1,0 +1,13 @@
+<h2>Edit Topic</h2>
+<div class="topic">
+  <%= form_for @topic do |f| %>
+    <div>
+      <%= f.label 'Topic: ' %>
+      <%= f.text_area :content, class: 'topic' %>
+    </div>
+    <br/>
+    <%= f.submit 'Edit Topic' %>
+  <% end %>
+  <br/>
+  <%= link_to 'Back', topics_path %>
+</div>

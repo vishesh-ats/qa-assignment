@@ -1,0 +1,7 @@
+<h2>Answer</h2>
+<div class="answer">
+  <p><b>Question: </b><%= @answer.question.content %></p>
+  <p><b>Answer: </b><%= @answer.content %></p>
+  <p><b>User: </b><%= @answer.user.email %></p>
+</div>
+<%= link_to 'Back', answers_path %>

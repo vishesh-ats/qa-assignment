@@ -1,0 +1,18 @@
+<h2>New Question</h2>
+<div class="question">
+  <%= form_for @question do |f| %>
+    <div>
+      <%= f.label 'Question: ' %>
+      <%= f.text_area :content %>
+    </div>
+    <br/>
+    <div>
+      <%= label_tag 'Add Topic: ' %>
+      <%= text_field_tag :topic %>
+    </div>
+    <br/>
+    <%= f.submit 'Save Question' %>
+  <% end %>
+  <br/>
+  <%= link_to 'Back', questions_path %>
+</div> 

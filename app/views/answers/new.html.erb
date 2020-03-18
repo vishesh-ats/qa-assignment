@@ -1,0 +1,20 @@
+<h2>New Question</h2>
+<div class="answer">
+  <%= form_for @answer do |f| %>
+    <div>
+      <p><b>Question</b></p>
+      <%= @question.content %>
+    </div>
+    <br/>
+    <div>
+      <%= f.label 'Answer: ' %>
+      <%= f.text_area :content %>
+    </div>
+    <br/>
+    <br/>
+    <%= f.hidden_field :question_id, value: @question.id %>
+    <%= f.submit 'Save Answer' %>
+  <% end %>
+  <br/>
+  <%= link_to 'Back', answers_path %>
+</div> 

@@ -1,0 +1,29 @@
+<h1>Topic Listing</h1>
+<div class="topic">
+  <% if @topics.empty? %>
+    <p>No Topic Available</p>
+  <% else %>
+    <table>
+      <thead>
+      <th>Answer</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      </thead>
+      <tbody>
+      <% @topics.each do |topic| %>
+        <tr>
+          <td><%= topic.content %></td>
+          <td><%= topic.user.email %></td>
+          <td><%= link_to 'Show', topic_path(topic) %></td>
+          <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
+          <td><%= link_to 'Delete', topic, alert: 'Are you Sure?', method: :delete %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <br/>
+  <%= link_to 'Add Topic', new_topic_path, class: 'topic' %>
+</div>

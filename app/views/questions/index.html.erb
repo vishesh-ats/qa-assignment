@@ -1,0 +1,27 @@
+<h1>Questions Listing</h1>
+<div>
+  <% if @questions.empty? %>
+    <p>No Question Available</p>
+  <% else %>
+    <table>
+      <thead>
+      <th>Question</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      </thead>
+      <tbody>
+      <% @questions.each do |question| %>
+        <tr>
+          <td><%= link_to question.content, question_path(question), class: 'question' %></td>
+          <td><%= question.user.email %></td>
+          <td><%= link_to 'Show', question_path(question) %></td>
+          <td><%= link_to 'Edit', edit_question_path(question) %></td>
+          <td><%= link_to 'Delete', question, alert: 'Are you Sure?', method: :delete %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

@@ -1,0 +1,29 @@
+<h1>Answers Listing</h1>
+<div class="answer">
+  <% if @answers.empty? %>
+    <p>No Answer Available</p>
+  <% else %>
+    <table>
+      <thead>
+      <th>Question</th>
+      <th>Answer</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      </thead>
+      <tbody>
+      <% @answers.each do |answer| %>
+        <tr>
+          <td><%= answer.question.content %></td>
+          <td><%= answer.content %></td>
+          <td><%= answer.user.email %></td>
+          <td><%= link_to 'Show', answer_path(answer) %></td>
+          <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
+          <td><%= link_to 'Delete', answer, alert: 'Are you Sure?', method: :delete %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

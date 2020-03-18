@@ -1,0 +1,14 @@
+<h2>New Topic</h2>
+<div class="topic">
+  <%= form_for @topic do |f| %>
+    <div>
+      <%= f.label 'Topic: ' %>
+      <%= f.text_area :content %>
+    </div>
+    <br/>
+    <br/>
+    <%= f.submit 'Save Topic' %>
+  <% end %>
+  <br/>
+  <%= link_to 'Back', topics_path %>
+</div> 
